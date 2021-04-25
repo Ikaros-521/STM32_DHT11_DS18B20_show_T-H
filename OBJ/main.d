@@ -36,3 +36,4 @@
 ..\obj\main.o: ..\SYSTEM\usart\usart.h
 ..\obj\main.o: D:\KELI\ARM\ARMCC\Bin\..\include\stdio.h
 ..\obj\main.o: ..\HARDWARE\dht11\bsp_dht11.h
+..\obj\main.o: ..\HARDWARE\DS18B20\ds18b20.h

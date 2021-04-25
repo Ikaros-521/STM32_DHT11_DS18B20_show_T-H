@@ -5,6 +5,7 @@
 "..\obj\led.o"
 "..\obj\lcd.o"
 "..\obj\bsp_dht11.o"
+"..\obj\ds18b20.o"
 "..\obj\delay.o"
 "..\obj\sys.o"
 "..\obj\usart.o"
