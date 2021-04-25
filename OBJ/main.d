@@ -37,3 +37,5 @@
 ..\obj\main.o: D:\KELI\ARM\ARMCC\Bin\..\include\stdio.h
 ..\obj\main.o: ..\HARDWARE\dht11\bsp_dht11.h
 ..\obj\main.o: ..\HARDWARE\DS18B20\ds18b20.h
+..\obj\main.o: ..\HARDWARE\KEY\key.h
+..\obj\main.o: ..\HARDWARE\BEEP\beep.h
