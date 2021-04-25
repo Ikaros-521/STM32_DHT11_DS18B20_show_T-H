@@ -36,10 +36,3 @@ uint8_t Read_DHT11(DHT11_Data_TypeDef *DHT11_Data);
 static uint8_t Read_Byte(void);
 
 #endif /* __DHT11_H */
-
-
-
-
-
-
-
