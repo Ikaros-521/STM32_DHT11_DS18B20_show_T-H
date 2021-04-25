@@ -30,18 +30,3 @@ u8 DS18B20_Read_Bit(void);//读出一个位
 u8 DS18B20_Check(void);//检测是否存在DS18B20
 void DS18B20_Rst(void);//复位DS18B20    
 #endif
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
