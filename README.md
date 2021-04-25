@@ -14,7 +14,17 @@
 
 &nbsp;&nbsp;&nbsp;&nbsp;[ds18b20中文资料详解](http://www.elecfans.com/yuanqijian/sensor/20171106575662.html)
 
-源码参考：野火dht11温湿度传感器测试实验，正点原子TFTLCD显示实验 18B20数字温度传感器实验
+源码参考：
+
+&nbsp;&nbsp;&nbsp;&nbsp;野火dht11温湿度传感器测试实验
+
+&nbsp;&nbsp;&nbsp;&nbsp;正点原子TFTLCD显示实验
+
+&nbsp;&nbsp;&nbsp;&nbsp;正点原子18B20数字温度传感器实验
+
+&nbsp;&nbsp;&nbsp;&nbsp;正点原子按键实验
+
+&nbsp;&nbsp;&nbsp;&nbsp;正点原子蜂鸣器实验
 
 开发板：正点原子 STM32F103 精英版
 
@@ -22,7 +32,7 @@
 
 开发环境：Keil5
 
-**开发板**使用了 LED  TFTLCD USART DHT11模块 DS18B20模块 
+**开发板**使用了 LED KEY BEEP  TFTLCD USART DHT11模块 DS18B20模块 
 
 ## 代码下载：
 
@@ -30,11 +40,13 @@
 
 ## 功能介绍：
 
-&nbsp;&nbsp;&nbsp;&nbsp;LED0约2秒一闪，表示程序运行中。
+1、LED0约2秒一闪，表示程序运行中。
 
-&nbsp;&nbsp;&nbsp;&nbsp;LCD和串口显示实时的温湿度，2秒一循环。
+2、LCD和串口显示实时的温湿度，2秒一循环。上面一个temp是DS18B20，下面的是DHT11。%RH 相对湿度，  CEL 摄氏度（ps：不接入DS18B20的话会循环等待）
 
-&nbsp;&nbsp;&nbsp;&nbsp;%RH 相对湿度，  CEL 摄氏度（ps：不接入DS18B20的话会循环等待）
+3、按键都会翻转LED1，KEY1 开启报警模式，KEY0关闭报警模式。（按键10ms一巡检）
+
+4、报警模式下：当温度不低于85摄氏度或者湿度不低于90%RH，蜂鸣器报警。可以通过按下KEY0关闭报警模式。（报警串口会有打印，LCD也会有提示）
 
 # 接线
 
@@ -62,21 +74,35 @@ GND  -》 GND
 
 ## 普通环境
 
+### 普通版main.c
+
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20210425142439796.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70)
+
+### 升级版
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20210425154246610.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70)
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20210425141720248.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70)
 
 ## 哈热气
 
+### 普通版
+
 我这哈了3下
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20210425141812267.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70)
+
+
 
 然后持续手扇风
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/202104251418503.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70)
 
 ok，温湿度降下来了。
+
+### 升级版
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20210425154526974.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70)
 
 ## 搓手捂热
 
@@ -95,6 +121,8 @@ ok，温湿度降下来了。
 最后来个鼻息
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20210425142526110.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70)
+
+
 
 # 参考用图
 
@@ -117,3 +145,6 @@ ok，温湿度降下来了。
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/2021042514344976.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70)
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20210425143458770.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70)
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20210425144842814.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70)
+
